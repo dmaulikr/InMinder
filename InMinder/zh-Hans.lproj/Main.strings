@@ -1,0 +1,9 @@
+
+/* Class = "IBUINavigationItem"; title = "标题"; ObjectID = "Mh8-1d-3nZ"; */
+"Mh8-1d-3nZ.title" = "标题";
+
+/* Class = "IBUIBarButtonItem"; title = "编辑"; ObjectID = "WfZ-7S-WPt"; */
+"WfZ-7S-WPt.title" = "编辑";
+
+/* Class = "IBUINavigationItem"; title = "添加事情"; ObjectID = "rvA-k9-HMp"; */
+"rvA-k9-HMp.title" = "添加事情";

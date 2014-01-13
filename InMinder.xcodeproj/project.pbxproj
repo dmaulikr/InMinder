@@ -10,7 +10,6 @@
 		4A3282DE18823E31003C3045 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3282DD18823E31003C3045 /* Foundation.framework */; };
 		4A3282E018823E31003C3045 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3282DF18823E31003C3045 /* CoreGraphics.framework */; };
 		4A3282E218823E31003C3045 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3282E118823E31003C3045 /* UIKit.framework */; };
-		4A3282E818823E32003C3045 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A3282E618823E32003C3045 /* InfoPlist.strings */; };
 		4A3282EA18823E32003C3045 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3282E918823E32003C3045 /* main.m */; };
 		4A3282EE18823E32003C3045 /* NCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3282ED18823E32003C3045 /* NCAppDelegate.m */; };
 		4A3282F118823E32003C3045 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3282EF18823E32003C3045 /* Main.storyboard */; };
@@ -21,6 +20,8 @@
 		4A3282FF18823E32003C3045 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3282E118823E31003C3045 /* UIKit.framework */; };
 		4A32830718823E32003C3045 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A32830518823E32003C3045 /* InfoPlist.strings */; };
 		4A32830918823E32003C3045 /* InMinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A32830818823E32003C3045 /* InMinderTests.m */; };
+		4AC1A653188284660004B026 /* NCAddingStuffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1A652188284660004B026 /* NCAddingStuffViewController.m */; };
+		4AC1A6621882C74D0004B026 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AC1A6641882C74D0004B026 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,6 @@
 		4A3282DF18823E31003C3045 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4A3282E118823E31003C3045 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4A3282E518823E32003C3045 /* InMinder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InMinder-Info.plist"; sourceTree = "<group>"; };
-		4A3282E718823E32003C3045 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A3282E918823E32003C3045 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4A3282EB18823E32003C3045 /* InMinder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InMinder-Prefix.pch"; sourceTree = "<group>"; };
 		4A3282EC18823E32003C3045 /* NCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCAppDelegate.h; sourceTree = "<group>"; };
@@ -53,6 +53,14 @@
 		4A32830418823E32003C3045 /* InMinderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InMinderTests-Info.plist"; sourceTree = "<group>"; };
 		4A32830618823E32003C3045 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A32830818823E32003C3045 /* InMinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InMinderTests.m; sourceTree = "<group>"; };
+		4A32831A18827B5B003C3045 /* InMinder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = InMinder.entitlements; sourceTree = "<group>"; };
+		4AC1A65018827E270004B026 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		4AC1A651188284660004B026 /* NCAddingStuffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NCAddingStuffViewController.h; path = ../NCAddingStuffViewController.h; sourceTree = "<group>"; };
+		4AC1A652188284660004B026 /* NCAddingStuffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NCAddingStuffViewController.m; path = ../NCAddingStuffViewController.m; sourceTree = "<group>"; };
+		4AC1A6631882C74D0004B026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4AC1A6651882C7510004B026 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4AC1A6661882C7520004B026 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4AC1A6671884392C0004B026 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +120,11 @@
 		4A3282E318823E32003C3045 /* InMinder */ = {
 			isa = PBXGroup;
 			children = (
+				4A32831A18827B5B003C3045 /* InMinder.entitlements */,
 				4A3282EC18823E32003C3045 /* NCAppDelegate.h */,
 				4A3282ED18823E32003C3045 /* NCAppDelegate.m */,
 				4A3282EF18823E32003C3045 /* Main.storyboard */,
-				4A3282F218823E32003C3045 /* NCViewController.h */,
-				4A3282F318823E32003C3045 /* NCViewController.m */,
+				4A32831518824818003C3045 /* Controller */,
 				4A3282F518823E32003C3045 /* Images.xcassets */,
 				4A3282E418823E32003C3045 /* Supporting Files */,
 			);
@@ -126,8 +134,8 @@
 		4A3282E418823E32003C3045 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4AC1A6641882C74D0004B026 /* Localizable.strings */,
 				4A3282E518823E32003C3045 /* InMinder-Info.plist */,
-				4A3282E618823E32003C3045 /* InfoPlist.strings */,
 				4A3282E918823E32003C3045 /* main.m */,
 				4A3282EB18823E32003C3045 /* InMinder-Prefix.pch */,
 			);
@@ -150,6 +158,17 @@
 				4A32830518823E32003C3045 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4A32831518824818003C3045 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4AC1A651188284660004B026 /* NCAddingStuffViewController.h */,
+				4AC1A652188284660004B026 /* NCAddingStuffViewController.m */,
+				4A3282F218823E32003C3045 /* NCViewController.h */,
+				4A3282F318823E32003C3045 /* NCViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +219,14 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = nevercry;
 				TargetAttributes = {
+					4A3282D918823E31003C3045 = {
+						DevelopmentTeam = L8463XAM23;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
 					4A3282FA18823E32003C3045 = {
 						TestTargetID = 4A3282D918823E31003C3045;
 					};
@@ -212,6 +239,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 4A3282D118823E31003C3045;
 			productRefGroup = 4A3282DB18823E31003C3045 /* Products */;
@@ -230,7 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A3282F618823E32003C3045 /* Images.xcassets in Resources */,
-				4A3282E818823E32003C3045 /* InfoPlist.strings in Resources */,
+				4AC1A6621882C74D0004B026 /* Localizable.strings in Resources */,
 				4A3282F118823E32003C3045 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +281,7 @@
 				4A3282F418823E32003C3045 /* NCViewController.m in Sources */,
 				4A3282EA18823E32003C3045 /* main.m in Sources */,
 				4A3282EE18823E32003C3045 /* NCAppDelegate.m in Sources */,
+				4AC1A653188284660004B026 /* NCAddingStuffViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,18 +304,11 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4A3282E618823E32003C3045 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4A3282E718823E32003C3045 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		4A3282EF18823E32003C3045 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4A3282F018823E32003C3045 /* Base */,
+				4AC1A6671884392C0004B026 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -295,8 +317,20 @@
 			isa = PBXVariantGroup;
 			children = (
 				4A32830618823E32003C3045 /* en */,
+				4AC1A65018827E270004B026 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4AC1A6641882C74D0004B026 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AC1A6631882C74D0004B026 /* Base */,
+				4AC1A6651882C7510004B026 /* en */,
+				4AC1A6661882C7520004B026 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -379,6 +413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = InMinder/InMinder.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InMinder/InMinder-Prefix.pch";
 				INFOPLIST_FILE = "InMinder/InMinder-Info.plist";
@@ -392,6 +427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = InMinder/InMinder.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InMinder/InMinder-Prefix.pch";
 				INFOPLIST_FILE = "InMinder/InMinder-Info.plist";
@@ -461,6 +497,7 @@
 				4A32830E18823E32003C3045 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A32830F18823E32003C3045 /* Build configuration list for PBXNativeTarget "InMinderTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +506,7 @@
 				4A32831118823E32003C3045 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

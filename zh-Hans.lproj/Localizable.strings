@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  InMinder
+
+  Created by nevercry on 1/12/14.
+  Copyright (c) 2014 nevercry. All rights reserved.
+*/
+"Get In"="到达";
+"Go Out"="离开";
+"Done"="完成";
+"Add Stuff"="添加事项";
+"Edit"="编辑";
