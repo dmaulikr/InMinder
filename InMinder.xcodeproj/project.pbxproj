@@ -22,6 +22,10 @@
 		4A32830918823E32003C3045 /* InMinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A32830818823E32003C3045 /* InMinderTests.m */; };
 		4AC1A653188284660004B026 /* NCAddingStuffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1A652188284660004B026 /* NCAddingStuffViewController.m */; };
 		4AC1A6621882C74D0004B026 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AC1A6641882C74D0004B026 /* Localizable.strings */; };
+		4AC1A66918843CC70004B026 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC1A66818843CC70004B026 /* CoreBluetooth.framework */; };
+		4AC1A66B18843CCD0004B026 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC1A66A18843CCD0004B026 /* CoreLocation.framework */; };
+		4AC1A66E18858B560004B026 /* NCBeaconSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1A66D18858B560004B026 /* NCBeaconSettingViewController.m */; };
+		4AC1A671188590CB0004B026 /* NCPlaceBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1A670188590CB0004B026 /* NCPlaceBeacon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,12 @@
 		4AC1A6651882C7510004B026 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4AC1A6661882C7520004B026 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4AC1A6671884392C0004B026 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		4AC1A66818843CC70004B026 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		4AC1A66A18843CCD0004B026 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4AC1A66C18858B560004B026 /* NCBeaconSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCBeaconSettingViewController.h; sourceTree = "<group>"; };
+		4AC1A66D18858B560004B026 /* NCBeaconSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCBeaconSettingViewController.m; sourceTree = "<group>"; };
+		4AC1A66F188590CB0004B026 /* NCPlaceBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NCPlaceBeacon.h; path = Model/NCPlaceBeacon.h; sourceTree = "<group>"; };
+		4AC1A670188590CB0004B026 /* NCPlaceBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NCPlaceBeacon.m; path = Model/NCPlaceBeacon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AC1A66B18843CCD0004B026 /* CoreLocation.framework in Frameworks */,
+				4AC1A66918843CC70004B026 /* CoreBluetooth.framework in Frameworks */,
 				4A3282E018823E31003C3045 /* CoreGraphics.framework in Frameworks */,
 				4A3282E218823E31003C3045 /* UIKit.framework in Frameworks */,
 				4A3282DE18823E31003C3045 /* Foundation.framework in Frameworks */,
@@ -109,6 +121,8 @@
 		4A3282DC18823E31003C3045 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4AC1A66A18843CCD0004B026 /* CoreLocation.framework */,
+				4AC1A66818843CC70004B026 /* CoreBluetooth.framework */,
 				4A3282DD18823E31003C3045 /* Foundation.framework */,
 				4A3282DF18823E31003C3045 /* CoreGraphics.framework */,
 				4A3282E118823E31003C3045 /* UIKit.framework */,
@@ -124,6 +138,7 @@
 				4A3282EC18823E32003C3045 /* NCAppDelegate.h */,
 				4A3282ED18823E32003C3045 /* NCAppDelegate.m */,
 				4A3282EF18823E32003C3045 /* Main.storyboard */,
+				4AC1A672188590D40004B026 /* Model */,
 				4A32831518824818003C3045 /* Controller */,
 				4A3282F518823E32003C3045 /* Images.xcassets */,
 				4A3282E418823E32003C3045 /* Supporting Files */,
@@ -167,8 +182,20 @@
 				4AC1A652188284660004B026 /* NCAddingStuffViewController.m */,
 				4A3282F218823E32003C3045 /* NCViewController.h */,
 				4A3282F318823E32003C3045 /* NCViewController.m */,
+				4AC1A66C18858B560004B026 /* NCBeaconSettingViewController.h */,
+				4AC1A66D18858B560004B026 /* NCBeaconSettingViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		4AC1A672188590D40004B026 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4AC1A66F188590CB0004B026 /* NCPlaceBeacon.h */,
+				4AC1A670188590CB0004B026 /* NCPlaceBeacon.m */,
+			);
+			name = Model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AC1A671188590CB0004B026 /* NCPlaceBeacon.m in Sources */,
+				4AC1A66E18858B560004B026 /* NCBeaconSettingViewController.m in Sources */,
 				4A3282F418823E32003C3045 /* NCViewController.m in Sources */,
 				4A3282EA18823E32003C3045 /* main.m in Sources */,
 				4A3282EE18823E32003C3045 /* NCAppDelegate.m in Sources */,

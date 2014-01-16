@@ -67,6 +67,9 @@
         
         NSLog(@"title is %@",self.title);
     }
+    
+    
+    
 }
 
 - (NSMutableArray *)currentTableViewData
@@ -252,6 +255,12 @@
     }
 }
 
+- (IBAction)settingDone:(UIStoryboardSegue *)sender
+{
+    
+}
+
+
 - (IBAction)tableViewEdit:(UIBarButtonItem *)sender {
     
     self.tableView.editing = !self.tableView.isEditing;
@@ -260,6 +269,18 @@
     
     
 }
+
+- (IBAction)infoBTNPressed:(UIButton *)sender {
+    
+    NSLog(@"Hello !!!!");
+
+    
+    //[self performSegueWithIdentifier:@"Setting" sender:sender];
+    
+}
+
+
+
 
 
 
