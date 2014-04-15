@@ -7,6 +7,7 @@
 //
 
 #import "NCAppDelegate.h"
+#import "NCPlaceBeacon.h"
 
 @implementation NCAppDelegate
 {

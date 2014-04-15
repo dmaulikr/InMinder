@@ -10,6 +10,8 @@
 
 @interface NCBeaconSettingViewController ()
 
+@property (nonatomic,strong) NSArray *places;
+
 @end
 
 @implementation NCBeaconSettingViewController
@@ -35,8 +37,7 @@
     
     self.title = NSLocalizedString(@"Setting", nil);
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"HomeCell"];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"WorkCell"];
+    //self.places = [UIApplication sharedApplication]
     
 }
 
