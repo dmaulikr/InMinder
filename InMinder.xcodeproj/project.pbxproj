@@ -20,6 +20,7 @@
 		4A3282FF18823E32003C3045 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3282E118823E31003C3045 /* UIKit.framework */; };
 		4A32830718823E32003C3045 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A32830518823E32003C3045 /* InfoPlist.strings */; };
 		4A32830918823E32003C3045 /* InMinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A32830818823E32003C3045 /* InMinderTests.m */; };
+		4AB0AB061902DBE200E2DF61 /* NCDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0AB051902DBE200E2DF61 /* NCDefaults.m */; };
 		4AC1A653188284660004B026 /* NCAddingStuffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1A652188284660004B026 /* NCAddingStuffViewController.m */; };
 		4AC1A6621882C74D0004B026 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AC1A6641882C74D0004B026 /* Localizable.strings */; };
 		4AC1A66918843CC70004B026 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC1A66818843CC70004B026 /* CoreBluetooth.framework */; };
@@ -58,6 +59,8 @@
 		4A32830618823E32003C3045 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A32830818823E32003C3045 /* InMinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InMinderTests.m; sourceTree = "<group>"; };
 		4A32831A18827B5B003C3045 /* InMinder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = InMinder.entitlements; sourceTree = "<group>"; };
+		4AB0AB041902DBE200E2DF61 /* NCDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCDefaults.h; sourceTree = "<group>"; };
+		4AB0AB051902DBE200E2DF61 /* NCDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCDefaults.m; sourceTree = "<group>"; };
 		4AC1A65018827E270004B026 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		4AC1A651188284660004B026 /* NCAddingStuffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NCAddingStuffViewController.h; path = ../NCAddingStuffViewController.h; sourceTree = "<group>"; };
 		4AC1A652188284660004B026 /* NCAddingStuffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NCAddingStuffViewController.m; path = ../NCAddingStuffViewController.m; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 				4A3282E518823E32003C3045 /* InMinder-Info.plist */,
 				4A3282E918823E32003C3045 /* main.m */,
 				4A3282EB18823E32003C3045 /* InMinder-Prefix.pch */,
+				4AB0AB041902DBE200E2DF61 /* NCDefaults.h */,
+				4AB0AB051902DBE200E2DF61 /* NCDefaults.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 				4AC1A671188590CB0004B026 /* NCPlaceBeacon.m in Sources */,
 				4AC1A66E18858B560004B026 /* NCBeaconSettingViewController.m in Sources */,
 				4A3282F418823E32003C3045 /* NCViewController.m in Sources */,
+				4AB0AB061902DBE200E2DF61 /* NCDefaults.m in Sources */,
 				4A3282EA18823E32003C3045 /* main.m in Sources */,
 				4A3282EE18823E32003C3045 /* NCAppDelegate.m in Sources */,
 				4AC1A653188284660004B026 /* NCAddingStuffViewController.m in Sources */,
@@ -441,10 +447,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = InMinder/InMinder.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Shenfu yang (NLLC7J3LVC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shenfu yang (NLLC7J3LVC)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InMinder/InMinder-Prefix.pch";
 				INFOPLIST_FILE = "InMinder/InMinder-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "B2F06EDB-44F4-4E77-A3F4-7894FF96DF25";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -455,10 +464,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = InMinder/InMinder.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Shenfu yang (NLLC7J3LVC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shenfu yang (NLLC7J3LVC)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InMinder/InMinder-Prefix.pch";
 				INFOPLIST_FILE = "InMinder/InMinder-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "B2F06EDB-44F4-4E77-A3F4-7894FF96DF25";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
