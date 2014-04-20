@@ -31,8 +31,17 @@
     else if(state == CLRegionStateOutside)
     {
         // 2.检查是否有离开的提醒事项
+        
+        NSArray *outToDoList = [[NSUserDefaults standardUserDefaults] objectForKey:kInMinderOutToDoList];
+        
+        if ([outToDoList count]) {
+            notification.alertBody = [outToDoList firstObject];
+        
+        }
+        
+        
         // 显示具体事项
-        //notification.alertBody = @"You're outside the region";
+        
     }
     else
     {
