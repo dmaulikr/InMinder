@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+
 
 enum  NCBaseTVCListType
 {
@@ -15,10 +17,7 @@ enum  NCBaseTVCListType
 };
 typedef NSUInteger NCListType;
 
-@interface NCViewController : UIViewController
-
-
-
+@interface NCViewController : UIViewController<CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (nonatomic,strong) NSMutableArray *inDoList;

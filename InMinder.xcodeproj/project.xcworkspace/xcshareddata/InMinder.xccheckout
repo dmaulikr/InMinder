@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C91DB3B3-F6EB-4D4E-85A0-48C1DD9F2877</string>
+	<key>IDESourceControlProjectName</key>
+	<string>InMinder</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>623FCFB4-CAFC-4D57-922C-D81ED0CA0433</key>
+		<string>https://github.com/nevercry/InMinder.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>InMinder.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>623FCFB4-CAFC-4D57-922C-D81ED0CA0433</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/nevercry/InMinder.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>623FCFB4-CAFC-4D57-922C-D81ED0CA0433</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>623FCFB4-CAFC-4D57-922C-D81ED0CA0433</string>
+			<key>IDESourceControlWCCName</key>
+			<string>InMinder</string>
+		</dict>
+	</array>
+</dict>
+</plist>

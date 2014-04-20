@@ -11,10 +11,13 @@
 
 @interface NCPlaceBeacon : NSObject
 
-@property (nonatomic,strong) NSUUID *uuid;
-@property (nonatomic,strong) NSNumber *major;
-@property (nonatomic,strong) NSNumber *minor;
+@property (nonatomic,weak) NSUUID *uuid;
+@property (nonatomic,weak) NSNumber *major;
+@property (nonatomic,weak) NSNumber *minor;
 @property (nonatomic,strong) CLBeaconRegion *region;
 
+- (instancetype)initWithUUID:(NSUUID *)uuid
+                       major:(NSNumber *)major
+                       minor:(NSNumber *)minor;
 
 @end

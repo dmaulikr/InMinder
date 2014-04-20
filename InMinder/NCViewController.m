@@ -8,24 +8,73 @@
 
 #import "NCViewController.h"
 #import "NCAddingStuffViewController.h"
+#import "NCPlaceBeacon.h"
+
+
+static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500C63";
 
 @interface NCViewController ()
 
 @property (nonatomic,strong) UIBarButtonItem *editBarButton;
 @property (nonatomic,strong) UIBarButtonItem *editingBarButton;
+@property (nonatomic,strong) NCPlaceBeacon *placeBeacon;
+@property (nonatomic,strong) CLLocationManager *locationManager;
+
+@property (nonatomic) BOOL notifyOnExit;
+@property (nonatomic) BOOL notifyOnEntry;
+@property (nonatomic) BOOL notifyOnDisplay;
 
 @end
 
 @implementation NCViewController
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // 配置Beacon
+    
+    
+    if (!self.placeBeacon) {
+        NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:InMinderUUIDString];
+        
+        self.placeBeacon = [[NCPlaceBeacon alloc] initWithUUID:uuid  major:0 minor:0];
+    }
+    
+    CLBeaconRegion *region = [_locationManager.monitoredRegions member:self.placeBeacon.region];
+    
+    if (region)
+    {
+        // has region
+    }
+    else
+    {
+        self.placeBeacon.region.notifyOnExit = _notifyOnExit;
+        self.placeBeacon.region.notifyOnEntry = _notifyOnEntry;
+        self.placeBeacon.region.notifyEntryStateOnDisplay = _notifyOnDisplay;
+        
+        [_locationManager startMonitoringForRegion:self.placeBeacon.region];
+    }
+    
+    
+    
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.delegate = self;
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
     [self checkingDataAndSetting];
+    
+    
     
 }
 
@@ -44,7 +93,7 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     NSArray *inDoList = [userDefaults objectForKey:@"NC_IN_DO_LIST"];
-    NSArray *outDoList = [userDefaults objectForKey:@"NC_OUT_DO_LIST"];
+    NSArray *outDoList = [userDefaults objectForKey:kInMinderOutToDoList];
     NSString *lastTitle = [userDefaults objectForKey:@"NC_LAST_TITLE"];
     
     if (inDoList)
@@ -66,6 +115,11 @@
         self.title = NSLocalizedString(@"Go Out", nil);
         
         NSLog(@"title is %@",self.title);
+        
+        
+        self.notifyOnExit =  YES;
+        self.notifyOnEntry = NO;
+        self.notifyOnDisplay = YES;
     }
     
     

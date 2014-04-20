@@ -8,6 +8,9 @@
 
 #import "NCPlaceBeacon.h"
 
+
+static NSString *const InMinderRegionIdentifier = @"com.nevercry.apps.InMinder";
+
 @implementation NCPlaceBeacon
 
 - (instancetype)initWithUUID:(NSUUID *)uuid
@@ -16,10 +19,11 @@
 {
     self = [super init];
     if (self) {
-        self.uuid = uuid;
-        self.major = major;
-        self.minor = minor;
-        self.region = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:[major shortValue] minor:[minor shortValue] identifier:@"com.nevercry.apps.InMinder"];
+        _region = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:[major shortValue] minor:[minor shortValue] identifier:InMinderRegionIdentifier];
+        _uuid = _region.proximityUUID;
+        _major = _region.major;
+        _minor = _region.minor;
+        
     }
     
     return self;
