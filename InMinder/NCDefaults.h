@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define kInMinderOutToDoList @"NC_OUT_DO_LIST"
+
 @interface NCDefaults : NSObject
 
 @end
