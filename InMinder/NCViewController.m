@@ -24,6 +24,7 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
 @property (nonatomic) BOOL notifyOnEntry;
 @property (nonatomic) BOOL notifyOnDisplay;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;  // 活动指示器
 @end
 
 @implementation NCViewController
@@ -52,6 +53,8 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
+    
+    
     // 检查数据和设置
     [self checkingDataAndSetting];
     
@@ -78,7 +81,7 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
     
     NSArray *inDoList = [userDefaults objectForKey:kInMinderInToDoLinst];
     NSArray *outDoList = [userDefaults objectForKey:kInMinderOutToDoList];
-    NSString *lastTitle = [userDefaults objectForKey:@"NC_LAST_TITLE"];
+    NSString *lastTitle = [userDefaults objectForKey:kInMinderLastTitle];
     
     if (inDoList)
     {
@@ -93,6 +96,13 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
     if (lastTitle)
     {
         self.title = lastTitle;
+        
+        
+        if ([self.title isEqualToString:NSLocalizedString(@"Go Out", nil)]) {
+            self.titleSegmentedControl.selectedSegmentIndex = 0;
+        }else{
+            self.titleSegmentedControl.selectedSegmentIndex = 1;
+        }
     }
     else
     {
@@ -100,22 +110,31 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
         
         NSLog(@"title is %@",self.title);
         
+        self.titleSegmentedControl.selectedSegmentIndex = 0;
         
-        self.notifyOnExit =  YES;
-        self.notifyOnEntry = NO;
-        self.notifyOnDisplay = YES;
+        
+        
     }
+    
+    
+    self.notifyOnExit =  YES;
+    self.notifyOnEntry = YES;
+    self.notifyOnDisplay = YES;
     
     
     // 配置Beacon
     [self setupBeacon];
     
+    // 设置SementedControl 方法
+    [self.titleSegmentedControl addTarget:self action:@selector(titleChange:) forControlEvents:UIControlEventValueChanged];
     
     
 }
 
 - (void)setupBeacon
 {
+    
+    
     
     if (!self.placeBeacon) {
         NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:InMinderUUIDString];
@@ -138,6 +157,27 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
     }
 }
 
+- (void)titleChange:(UISegmentedControl *)sender
+{
+    [self.activityIndicator startAnimating];
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            // Out
+            self.title = NSLocalizedString(@"Go Out", nil);
+            break;
+        case 1:
+            // In
+            self.title = NSLocalizedString(@"Get In", nil);
+            break;
+        
+    }
+    
+    [self.tableView reloadData];
+    
+    
+    [self.activityIndicator performSelector:@selector(stopAnimating) withObject:nil afterDelay:0.1];  // Just for UI
+    
+}
 
 
 - (NSMutableArray *)currentTableViewData
@@ -159,6 +199,7 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     [userDefault setObject:self.inDoList forKey:kInMinderInToDoLinst];
     [userDefault setObject:self.outDoList forKey:kInMinderOutToDoList];
+    [userDefault setObject:self.title forKey:kInMinderLastTitle];
     [userDefault synchronize];
     
 }
@@ -168,6 +209,7 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     [userDefault setObject:self.inDoList forKey:kInMinderInToDoLinst];
     [userDefault setObject:self.outDoList forKey:kInMinderOutToDoList];
+    [userDefault setObject:self.title forKey:kInMinderLastTitle];
     [userDefault synchronize];
     
     CLBeaconRegion *region = [_locationManager.monitoredRegions member:self.placeBeacon.region];
