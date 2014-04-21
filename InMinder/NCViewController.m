@@ -33,32 +33,12 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
 {
     [super viewWillAppear:animated];
     
-    // 配置Beacon
-    
-    
-    if (!self.placeBeacon) {
-        NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:InMinderUUIDString];
-        
-        self.placeBeacon = [[NCPlaceBeacon alloc] initWithUUID:uuid  major:0 minor:0];
-    }
-    
-    CLBeaconRegion *region = [_locationManager.monitoredRegions member:self.placeBeacon.region];
-    
-    if (region)
-    {
-        // has region
-    }
-    else
-    {
-        self.placeBeacon.region.notifyOnExit = _notifyOnExit;
-        self.placeBeacon.region.notifyOnEntry = _notifyOnEntry;
-        self.placeBeacon.region.notifyEntryStateOnDisplay = _notifyOnDisplay;
-        
-        [_locationManager startMonitoringForRegion:self.placeBeacon.region];
-    }
-    
-    
-    
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 }
 
 
@@ -72,11 +52,17 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
+    // 检查数据和设置
     [self checkingDataAndSetting];
     
-    
-    
 }
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -86,13 +72,11 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
 
 
 
-
-
 - (void)checkingDataAndSetting
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    NSArray *inDoList = [userDefaults objectForKey:@"NC_IN_DO_LIST"];
+    NSArray *inDoList = [userDefaults objectForKey:kInMinderInToDoLinst];
     NSArray *outDoList = [userDefaults objectForKey:kInMinderOutToDoList];
     NSString *lastTitle = [userDefaults objectForKey:@"NC_LAST_TITLE"];
     
@@ -123,8 +107,38 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
     }
     
     
+    // 配置Beacon
+    [self setupBeacon];
+    
+    
     
 }
+
+- (void)setupBeacon
+{
+    
+    if (!self.placeBeacon) {
+        NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:InMinderUUIDString];
+        
+        self.placeBeacon = [[NCPlaceBeacon alloc] initWithUUID:uuid  major:0 minor:0];
+    }
+    
+    CLBeaconRegion *region = [_locationManager.monitoredRegions member:self.placeBeacon.region];
+    
+    if (region)
+    {
+        // has region
+    }
+    else
+    {
+        // 初始化Beacon region 设置
+        self.placeBeacon.region.notifyOnExit = _notifyOnExit;
+        self.placeBeacon.region.notifyOnEntry = _notifyOnEntry;
+        self.placeBeacon.region.notifyEntryStateOnDisplay = _notifyOnDisplay;
+    }
+}
+
+
 
 - (NSMutableArray *)currentTableViewData
 {
@@ -146,6 +160,39 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
     [userDefault setObject:self.inDoList forKey:kInMinderInToDoLinst];
     [userDefault setObject:self.outDoList forKey:kInMinderOutToDoList];
     [userDefault synchronize];
+    
+}
+
+- (void)saveDataToUserDefaultAndCheckoutMonitoringSetting
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setObject:self.inDoList forKey:kInMinderInToDoLinst];
+    [userDefault setObject:self.outDoList forKey:kInMinderOutToDoList];
+    [userDefault synchronize];
+    
+    CLBeaconRegion *region = [_locationManager.monitoredRegions member:self.placeBeacon.region];
+    
+    if (region)
+    {
+        // has region
+        // 如果In Out ToDoList都没有事件提醒时，清除区域监控
+        if ([self.inDoList count] == 0 && [self.outDoList count] == 0)
+        {
+            [self.locationManager stopMonitoringForRegion:self.placeBeacon.region];
+        }
+        
+    }
+    else
+    {
+        // no region
+        // 只要In Out ToDoList有事件提醒，就开始监控区域
+        if ([self.inDoList count]!= 0 || [self.outDoList count] != 0)
+        {
+            [self.locationManager startMonitoringForRegion:self.placeBeacon.region];
+        }
+        
+        
+    }
 }
 
 
@@ -246,7 +293,7 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
          {
              [self.inDoList removeObjectAtIndex:indexPath.row];
          }
-         [self saveDataToUserDefault];
+         [self saveDataToUserDefaultAndCheckoutMonitoringSetting];
          [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
      }
      else if (editingStyle == UITableViewCellEditingStyleInsert)
@@ -302,7 +349,7 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
             [self addStuff:stuff toList:NCInDoList];
         }
         
-        [self saveDataToUserDefault];
+        [self saveDataToUserDefaultAndCheckoutMonitoringSetting];
         
         [self.tableView reloadData];
         
