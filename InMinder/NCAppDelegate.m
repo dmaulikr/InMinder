@@ -32,7 +32,10 @@
     {
         // 1. 检查是否有到达的提醒事项
         
-        //notification.alertBody = @"You're inside the region";
+        if ([inToDoList count]) {
+            notification.alertBody = [inToDoList firstObject];
+        }
+        
     }
     else if(state == CLRegionStateOutside)
     {
@@ -44,15 +47,7 @@
             notification.alertBody = [outToDoList firstObject];
         
         }
-        else if (([outToDoList count] == 0 ||outToDoList == nil) &&([inToDoList count] == 0 || inToDoList == nil))  // 当In Out ToDoList都没有提醒事项时，程序自动关闭监控
-           
-        {
-            [_locationManager stopMonitoringForRegion:region];
-        }
         
-        
-        
-        // 显示具体事项
         
     }
     else
@@ -70,7 +65,16 @@
             return;   // 如果程序不在后台运行 ，则不推送通知。
         }
         
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        // 如果通知的内容和前次一样则不推送通知
+        
+        if (![self.lastNotificationBody isEqualToString:notification.alertBody]) {
+            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+            
+            self.lastNotificationBody = notification.alertBody;
+            
+            
+        }
+        
     }
     
     
