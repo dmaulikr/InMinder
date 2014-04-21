@@ -3,10 +3,10 @@
 "5Ih-ju-5TI.text" = "Minor:";
 
 /* Class = "IBUISegmentedControl"; DDO-OX-A3R.segmentTitles[0] = "Out"; ObjectID = "DDO-OX-A3R"; */
-"DDO-OX-A3R.segmentTitles[0]" = "Out";
+"DDO-OX-A3R.segmentTitles[0]" = "离开";
 
 /* Class = "IBUISegmentedControl"; DDO-OX-A3R.segmentTitles[1] = "In"; ObjectID = "DDO-OX-A3R"; */
-"DDO-OX-A3R.segmentTitles[1]" = "In";
+"DDO-OX-A3R.segmentTitles[1]" = "进入";
 
 /* Class = "IBUITextField"; placeholder = "Home"; ObjectID = "LBV-fu-frN"; */
 "LBV-fu-frN.placeholder" = "Home";

@@ -23,6 +23,7 @@ typedef NSUInteger NCListType;
 @property (nonatomic,strong) NSMutableArray *inDoList;
 @property (nonatomic,strong) NSMutableArray *outDoList;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *titleSegmentedControl;
 
 
 - (void)addStuff:(NSString *)stuff toList:(NCListType)type;
