@@ -61,13 +61,14 @@
 		4A32831A18827B5B003C3045 /* InMinder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = InMinder.entitlements; sourceTree = "<group>"; };
 		4AB0AB041902DBE200E2DF61 /* NCDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCDefaults.h; sourceTree = "<group>"; };
 		4AB0AB051902DBE200E2DF61 /* NCDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCDefaults.m; sourceTree = "<group>"; };
+		4AB4A95C1904F4DE00DA21BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		4AB4A95E1904F52400DA21BB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		4AC1A65018827E270004B026 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		4AC1A651188284660004B026 /* NCAddingStuffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NCAddingStuffViewController.h; path = ../NCAddingStuffViewController.h; sourceTree = "<group>"; };
 		4AC1A652188284660004B026 /* NCAddingStuffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NCAddingStuffViewController.m; path = ../NCAddingStuffViewController.m; sourceTree = "<group>"; };
 		4AC1A6631882C74D0004B026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4AC1A6651882C7510004B026 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4AC1A6661882C7520004B026 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		4AC1A6671884392C0004B026 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		4AC1A66818843CC70004B026 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		4AC1A66A18843CCD0004B026 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4AC1A66C18858B560004B026 /* NCBeaconSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCBeaconSettingViewController.h; sourceTree = "<group>"; };
@@ -343,7 +344,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4A3282F018823E32003C3045 /* Base */,
-				4AC1A6671884392C0004B026 /* zh-Hans */,
+				4AB4A95C1904F4DE00DA21BB /* en */,
+				4AB4A95E1904F52400DA21BB /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

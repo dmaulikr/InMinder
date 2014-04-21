@@ -11,14 +11,11 @@
 /* Class = "IBUITextField"; placeholder = "Home"; ObjectID = "LBV-fu-frN"; */
 "LBV-fu-frN.placeholder" = "Home";
 
-/* Class = "IBUINavigationItem"; title = "标题"; ObjectID = "Mh8-1d-3nZ"; */
-"Mh8-1d-3nZ.title" = "标题";
-
 /* Class = "IBUITextField"; placeholder = "E23GH-5ERT8I..."; ObjectID = "OYr-NB-stl"; */
 "OYr-NB-stl.placeholder" = "E23GH-5ERT8I...";
 
-/* Class = "IBUIBarButtonItem"; title = "编辑"; ObjectID = "WfZ-7S-WPt"; */
-"WfZ-7S-WPt.title" = "编辑";
+/* Class = "IBUIBarButtonItem"; title = "Edit"; ObjectID = "WfZ-7S-WPt"; */
+"WfZ-7S-WPt.title" = "Edit";
 
 /* Class = "IBUITextField"; placeholder = "1"; ObjectID = "X5c-6n-6F8"; */
 "X5c-6n-6F8.placeholder" = "1";
@@ -44,8 +41,8 @@
 /* Class = "IBUILabel"; text = "Major:"; ObjectID = "kQN-5F-fns"; */
 "kQN-5F-fns.text" = "Major:";
 
-/* Class = "IBUINavigationItem"; title = "添加事情"; ObjectID = "rvA-k9-HMp"; */
-"rvA-k9-HMp.title" = "添加事情";
+/* Class = "IBUINavigationItem"; title = "Add Stuff"; ObjectID = "rvA-k9-HMp"; */
+"rvA-k9-HMp.title" = "Add Stuff";
 
 /* Class = "IBUINavigationItem"; title = "Place"; ObjectID = "xar-Wt-ONf"; */
 "xar-Wt-ONf.title" = "Place";
