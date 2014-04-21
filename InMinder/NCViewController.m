@@ -172,6 +172,11 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
         
     }
     
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:self.title forKey:kInMinderLastTitle];
+    [userDefaults synchronize];
+
+    
     [self.tableView reloadData];
     
     
