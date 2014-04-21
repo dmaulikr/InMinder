@@ -75,6 +75,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="BK9-Al-gX6" id="XCc-By-Utt"/>
+                        <outlet property="editBarButton" destination="WfZ-7S-WPt" id="KYq-5S-LdZ"/>
                         <outlet property="infoButton" destination="3VS-Zb-lqI" id="Jnx-oN-wvu"/>
                         <outlet property="tableView" destination="s42-GR-ua1" id="bA0-JB-f6q"/>
                         <outlet property="titleSegmentedControl" destination="DDO-OX-A3R" id="OrP-ek-hK2"/>

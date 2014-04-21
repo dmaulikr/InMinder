@@ -62,7 +62,7 @@
 		4AB0AB041902DBE200E2DF61 /* NCDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCDefaults.h; sourceTree = "<group>"; };
 		4AB0AB051902DBE200E2DF61 /* NCDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCDefaults.m; sourceTree = "<group>"; };
 		4AB4A95C1904F4DE00DA21BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		4AB4A95E1904F52400DA21BB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		4AB4A963190514C500DA21BB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		4AC1A65018827E270004B026 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		4AC1A651188284660004B026 /* NCAddingStuffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NCAddingStuffViewController.h; path = ../NCAddingStuffViewController.h; sourceTree = "<group>"; };
 		4AC1A652188284660004B026 /* NCAddingStuffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NCAddingStuffViewController.m; path = ../NCAddingStuffViewController.m; sourceTree = "<group>"; };
@@ -345,7 +345,7 @@
 			children = (
 				4A3282F018823E32003C3045 /* Base */,
 				4AB4A95C1904F4DE00DA21BB /* en */,
-				4AB4A95E1904F52400DA21BB /* zh-Hans */,
+				4AB4A963190514C500DA21BB /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
