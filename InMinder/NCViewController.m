@@ -143,8 +143,8 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
 - (void)saveDataToUserDefault
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setObject:self.inDoList forKey:@"NC_IN_DO_LIST"];
-    [userDefault setObject:self.outDoList forKey:@"NC_OUT_DO_LIST"];
+    [userDefault setObject:self.inDoList forKey:kInMinderInToDoLinst];
+    [userDefault setObject:self.outDoList forKey:kInMinderOutToDoList];
     [userDefault synchronize];
 }
 

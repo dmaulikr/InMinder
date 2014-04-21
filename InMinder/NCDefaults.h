@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #define kInMinderOutToDoList @"NC_OUT_DO_LIST"
+#define kInMinderInToDoLinst @"NC_IN_DO_LIST"
 
 @interface NCDefaults : NSObject
 
