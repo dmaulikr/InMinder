@@ -22,6 +22,12 @@
     // and we will let the user know via a local notification.
     UILocalNotification *notification = [[UILocalNotification alloc] init];
     
+    NSArray *outToDoList = [[NSUserDefaults standardUserDefaults] objectForKey:kInMinderOutToDoList];
+    
+    NSArray *inToDoList = [[NSUserDefaults standardUserDefaults] objectForKey:kInMinderInToDoLinst];
+    
+    
+    
     if(state == CLRegionStateInside)
     {
         // 1. 检查是否有到达的提醒事项
@@ -32,12 +38,18 @@
     {
         // 2.检查是否有离开的提醒事项
         
-        NSArray *outToDoList = [[NSUserDefaults standardUserDefaults] objectForKey:kInMinderOutToDoList];
         
-        if ([outToDoList count]) {
+        if ([outToDoList count])
+        {
             notification.alertBody = [outToDoList firstObject];
         
         }
+        else if (([outToDoList count] == 0 ||outToDoList == nil) &&([inToDoList count] == 0 || inToDoList == nil))  // 当In Out ToDoList都没有提醒事项时，程序自动关闭监控
+           
+        {
+            [_locationManager stopMonitoringForRegion:region];
+        }
+        
         
         
         // 显示具体事项
@@ -50,7 +62,18 @@
     
     // If the application is in the foreground, it will get a callback to application:didReceiveLocalNotification:.
     // If its not, iOS will display the notification to the user.
-    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    
+    if ([notification.alertBody length]) {
+        // 只要通知信息长度不为0 就发通知
+        
+        if (!_isAppInBackground) {
+            return;   // 如果程序不在后台运行 ，则不推送通知。
+        }
+        
+        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    }
+    
+    
 }
 
 
@@ -60,6 +83,8 @@
     // This location manager will be used to notify the user of region state transitions.
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
+    
+    _isAppInBackground = NO;
     
     
     return YES;
@@ -75,11 +100,15 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    _isAppInBackground = YES;
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    _isAppInBackground = NO;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -90,6 +119,8 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    _isAppInBackground  = YES;
 }
 
 
