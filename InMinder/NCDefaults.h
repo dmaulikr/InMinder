@@ -10,6 +10,7 @@
 
 #define kInMinderOutToDoList @"NC_OUT_DO_LIST"
 #define kInMinderInToDoLinst @"NC_IN_DO_LIST"
+#define kInMinderLastTitle   @"NC_LAST_TITLE"
 
 @interface NCDefaults : NSObject
 
