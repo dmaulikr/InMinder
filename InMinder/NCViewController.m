@@ -15,8 +15,6 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
 
 @interface NCViewController ()
 
-@property (nonatomic,strong) UIBarButtonItem *editBarButton;
-@property (nonatomic,strong) UIBarButtonItem *editingBarButton;
 @property (nonatomic,strong) NCPlaceBeacon *placeBeacon;
 @property (nonatomic,strong) CLLocationManager *locationManager;
 
@@ -25,6 +23,8 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
 @property (nonatomic) BOOL notifyOnDisplay;
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;  // 活动指示器
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editBarButton;
+
 @end
 
 @implementation NCViewController
@@ -52,6 +52,8 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
     _locationManager.delegate = self;
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    
+    
     
     
     
@@ -106,13 +108,12 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
     }
     else
     {
+        // 第一次运行时初始化title，默认为Go Out
         self.title = NSLocalizedString(@"Go Out", nil);
         
         NSLog(@"title is %@",self.title);
         
         self.titleSegmentedControl.selectedSegmentIndex = 0;
-        
-        
         
     }
     
@@ -121,12 +122,18 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
     self.notifyOnEntry = YES;
     self.notifyOnDisplay = YES;
     
+   
+    
+    
     
     // 配置Beacon
     [self setupBeacon];
     
     // 设置SementedControl 方法
     [self.titleSegmentedControl addTarget:self action:@selector(titleChange:) forControlEvents:UIControlEventValueChanged];
+    
+    // 检查Edite 状态
+    [self checkEditeBarItemState];
     
     
 }
@@ -160,6 +167,14 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
 - (void)titleChange:(UISegmentedControl *)sender
 {
     [self.activityIndicator startAnimating];
+    
+    // 使tableView 退出编辑状态
+    if (self.tableView.isEditing)
+    {
+        self.tableView.editing = NO;
+    }
+    
+    
     switch (sender.selectedSegmentIndex) {
         case 0:
             // Out
@@ -179,9 +194,26 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
     
     [self.tableView reloadData];
     
+    [self checkEditeBarItemState];
+    
+    
+    
     
     [self.activityIndicator performSelector:@selector(stopAnimating) withObject:nil afterDelay:0.1];  // Just for UI
     
+}
+
+- (void)checkEditeBarItemState
+{
+    self.tableView.isEditing ? (self.editBarButton.title = NSLocalizedString(@"Done", nil)):(self.editBarButton.title = NSLocalizedString(@"Edit", nil));
+    
+    //  如果当前数据的数组为0则关闭edit
+    
+    if ([[self currentTableViewData] count]) {
+        self.editBarButton.enabled = YES;
+    }else {
+        self.editBarButton.enabled = NO;
+    }
 }
 
 
@@ -217,6 +249,8 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
     [userDefault setObject:self.title forKey:kInMinderLastTitle];
     [userDefault synchronize];
     
+    
+    
     CLBeaconRegion *region = [_locationManager.monitoredRegions member:self.placeBeacon.region];
     
     if (region)
@@ -226,6 +260,8 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
         if ([self.inDoList count] == 0 && [self.outDoList count] == 0)
         {
             [self.locationManager stopMonitoringForRegion:self.placeBeacon.region];
+            
+            
         }
         
     }
@@ -236,6 +272,8 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
         if ([self.inDoList count]!= 0 || [self.outDoList count] != 0)
         {
             [self.locationManager startMonitoringForRegion:self.placeBeacon.region];
+            
+            
         }
         
         
@@ -322,6 +360,7 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
  {
+     [self checkEditeBarItemState];
      return YES;
  }
 
@@ -342,6 +381,7 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
          }
          [self saveDataToUserDefaultAndCheckoutMonitoringSetting];
          [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+         [self checkEditeBarItemState];
      }
      else if (editingStyle == UITableViewCellEditingStyleInsert)
      {
@@ -414,7 +454,7 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
     self.tableView.editing = !self.tableView.isEditing;
     
     self.tableView.isEditing ? (sender.title = NSLocalizedString(@"Done", nil)):(sender.title = NSLocalizedString(@"Edit", nil));
-    
+    [self checkEditeBarItemState];
     
 }
 
