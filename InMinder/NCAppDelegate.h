@@ -17,7 +17,9 @@
 
 @property (nonatomic) BOOL isAppInBackground;  // 检测程序是否在后台运行，只有在后台的情况下，可以通知提醒用户。
 
-@property (nonatomic,strong) NSString *lastNotificationBody;
+@property (nonatomic,strong) NSString *lastOutNotificationBody;
+
+@property (nonatomic,strong) NSString *lastInNotificationBody;
 
 
 @end

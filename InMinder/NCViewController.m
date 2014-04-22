@@ -141,8 +141,6 @@ static  NSString *const InMinderUUIDString = @"8AFEF8C9-F93B-49CF-9087-2BEF4B500
 - (void)setupBeacon
 {
     
-    
-    
     if (!self.placeBeacon) {
         NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:InMinderUUIDString];
         

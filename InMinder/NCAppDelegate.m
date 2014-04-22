@@ -20,7 +20,9 @@
     // A user can transition in or out of a region while the application is not running.
     // When this happens CoreLocation will launch the application momentarily, call this delegate method
     // and we will let the user know via a local notification.
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    UILocalNotification *inNotification = [[UILocalNotification alloc] init]; // 进入通知
+    
+    UILocalNotification *outNotification = [[UILocalNotification alloc] init]; // 离开通知
     
     NSArray *outToDoList = [[NSUserDefaults standardUserDefaults] objectForKey:kInMinderOutToDoList];
     
@@ -33,7 +35,7 @@
         // 1. 检查是否有到达的提醒事项
         
         if ([inToDoList count]) {
-            notification.alertBody = [inToDoList firstObject];
+            inNotification.alertBody = [inToDoList firstObject];
         }
         
     }
@@ -44,7 +46,7 @@
         
         if ([outToDoList count])
         {
-            notification.alertBody = [outToDoList firstObject];
+            outNotification.alertBody = [outToDoList firstObject];
         
         }
         
@@ -58,23 +60,37 @@
     // If the application is in the foreground, it will get a callback to application:didReceiveLocalNotification:.
     // If its not, iOS will display the notification to the user.
     
-    if ([notification.alertBody length]) {
-        // 只要通知信息长度不为0 就发通知
-        
-        if (!_isAppInBackground) {
-            return;   // 如果程序不在后台运行 ，则不推送通知。
-        }
-        
+    if ([inNotification.alertBody length]&&self.isAppInBackground)
+    {
+        // 只要通知信息长度不为0并且程序在后台运行
         // 如果通知的内容和前次一样则不推送通知
-        
-        if (![self.lastNotificationBody isEqualToString:notification.alertBody]) {
-            [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+        if (![self.lastInNotificationBody isEqualToString:inNotification.alertBody])
+        {
             
-            self.lastNotificationBody = notification.alertBody;
+            // add notification sound
+            inNotification.soundName = UILocalNotificationDefaultSoundName;
+            inNotification.applicationIconBadgeNumber = 1;
             
             
+            [[UIApplication sharedApplication] presentLocalNotificationNow:inNotification];
+            
+            self.lastInNotificationBody = inNotification.alertBody;
         }
-        
+    }
+    
+    if ([outNotification.alertBody length]&&self.isAppInBackground)
+    {
+        // 只要通知信息长度不为0并且程序在后台运行
+        // 如果通知的内容和前次一样则不推送通知
+        if (![self.lastOutNotificationBody isEqualToString:outNotification.alertBody])
+        {
+            outNotification.soundName = UILocalNotificationDefaultSoundName;
+            outNotification.applicationIconBadgeNumber = 1;
+            
+            [[UIApplication sharedApplication] presentLocalNotificationNow:outNotification];
+            
+            self.lastOutNotificationBody = outNotification.alertBody;
+        }
     }
     
     
@@ -89,6 +105,8 @@
     _locationManager.delegate = self;
     
     _isAppInBackground = NO;
+    
+    
     
     
     return YES;
@@ -118,6 +136,8 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
